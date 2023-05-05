@@ -1,6 +1,9 @@
+#Guia 2) Clean data covid and plot cases.
+
 import pandas as pd #imorta panda como pd
 import seaborn as sns
-
+import matplotlib.pyplot as plt
+import csv
 
 df = pd.read_csv("C:\\Users\\yaale\\OneDrive\\Escritorio\\Analisis de datos\\iele754\\Jarufe\\covid-19.csv")
 
@@ -37,9 +40,5 @@ df3= df_cases_tidy_month_Lascondes.groupby(pd.Grouper(key = "variable", freq= "W
 sns.lineplot(data=df_cases_tidy_month_Lascondes, x ="variable", y = "value")
 sns.lineplot(data= df3, x = "variable" , y= "value")
 
-URL  = "https://es.wikipedia.org/wiki/Anexo:Comunas_de_Chile_por_poblaci%C3%B3n"
 
-Table_list= pd.read_html(URL)
-
-table = Table_list[1]
-print(table)
+plt.hist(df_cases_tidy, bins = 100, densi1ty = True)
